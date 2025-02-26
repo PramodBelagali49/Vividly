@@ -28,7 +28,7 @@ export default function Post() {
         appwriteService.deletePost(post.$id).then((status) => {
             if (status) {
                 appwriteService.deleteFile(post.featuredImage);
-                navigate("/");
+                navigate("/all-posts");
             }
         });
     };
@@ -50,8 +50,9 @@ export default function Post() {
                         {/* Edit/Delete Buttons */}
                         {(
                             <div className="absolute right-6 top-6">
-                                <Link to={`/Editpost/${post.$id}`}>
+                                <Link to={`/Editpost/${post.$id}`} className="mr-3">
                                     <Button bgColor="bg-green-500" className="mr-3">
+                                        {/* {console.log(post.$id)} */}
                                         Edit
                                     </Button>
                                 </Link>
